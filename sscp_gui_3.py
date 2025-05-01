@@ -201,8 +201,7 @@ class Player:
 
             # Update track name to include the audio file if not already done
             if os.path.basename(filepath) not in current_track.name:
-                current_track.name = f"{
-                    current_track.name} - {os.path.basename(filepath)}"
+                current_track.name = f"{current_track.name} - {os.path.basename(filepath)}"
                 # Update the combobox
                 self.angular_editor.track_selector['values'] = [
                     t.name for t in self.angular_editor.tracks]
@@ -595,9 +594,7 @@ class AngularEditor:
             return
 
         if len(self.tracks[self.current_track_index].keyframes) - len(selected) < 2:
-            messagebox.showwarning(
-                "Cannot Delete", f"Cannot delete {
-                    len(selected)} keyframes. Each track must have 2 keyframes.")
+            messagebox.showwarning("Cannot Delete", f"Cannot delete {len(selected)} keyframes. Each track must have 2 keyframes.")
             return
 
         for row_id in selected:
@@ -934,8 +931,7 @@ class AngularEditor:
                 print("#" + f'{random.randint(0, 255):02x}' +
                       f'{random.randint(0, 255):02x}' + f'{random.randint(0, 255):02x}')
                 for i in range(len(t.theta_times)):
-                    print(f"{round((t.theta_times[i] - t.theta_times[0]) * 1000)},{
-                        round(t.theta_values[i])}")
+                    print(f"{round((t.theta_times[i] - t.theta_times[0]) * 1000)},{round(t.theta_values[i])}")
                 print()
 
     def save_design(self):
